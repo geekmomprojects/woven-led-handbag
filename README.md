@@ -27,14 +27,15 @@ You can also simply type in text which will scroll across the matrix.  As long a
 The Bluefruit App can subscribe to an MQTT feed, and will automatically send received text data to the Feather M0 BLE board. Here are two ways to get Twitter data to an MQTT feed:
 
 #### Adafruit.io and IFTTT
-If you have never used MQTTT before, this will be the easiest way to start.  Adafruit.io is basically a simplified MQTT server.  You can use the free service IFTTT (If This Then That, http::www.ifttt.com) to make "recipes" that send data from one application to another.  The workflow is:
+If you have never used MQTTT before, this will be the easiest way to start.  Adafruit.io is basically a simplified MQTT server.  You can use the free service IFTTT (If This Then That, www.ifttt.com) to make "recipes" that send data from one application to another.  The workflow is:
 
 **Twitter**--(IFTTT recipe)-->**IFTTT**--(IFTTT recipe)-->**Adafruit.io**--(MQTT)-->**Bluefruit App**--(BLE)-->**Feather M0 BLE**
 
-It is pretty easy to figure out how to set up a recipe in IFTTT to retrieve data from twitter and send it to Adafruit.io.  If you need help setting up the rest of of the workflow, here are some useful links:
+It is pretty easy to figure out how to set up a recipe in IFTTT to retrieve data from twitter and send it to Adafruit.io.  If you need help setting up the rest of of the workflow, these links are useful:
 - Connecting IFTTT with Adafruit.io:  https://learn.adafruit.com/using-ifttt-with-adafruit-io/ifttt-to-adafruit-io-setup
 - Connecting Bluefruit App to Adafruit.io via MQTT: https://learn.adafruit.com/datalogging-hat-with-flora-ble/bluefruit-le-connect-settings
 
 The downside of using Adafruit.io and IFTTT is you have fairly little control over the workflow, and sometimes the response times between tweeting and receiving the data are long (10s of seconds).
 
 #### Node-RED and Mosquitto
+This method is more complicated to set up, but gives you much greater control over the data flow and has a faster response time.
