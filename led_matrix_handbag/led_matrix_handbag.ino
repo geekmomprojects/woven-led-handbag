@@ -9,7 +9,7 @@
 
 #define __DEBUG
 
-// Controller button values
+// Controller button values - not currently used
 enum {BUTTON_1 = 1, BUTTON_2, BUTTON_3, BUTTON_4, BUTTON_UP, BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT};
 
 
