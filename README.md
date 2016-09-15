@@ -24,14 +24,14 @@ The code recognizes text starting with an "!" as a command, and responds to thre
 You can also simply type in text which will scroll across the matrix.  As long as the text is not preceded by an exclamation point, it will display as written, scrolling across the matrix three times.
 
 ### Getting Data from Twitter using MQTT
-The Bluefruit App can subscribe to an MQTT feed, and will automatically send received text data to the Feather MO BLE board. Here are two ways to get Twitter data to an MQTT feed:
+The Bluefruit App can subscribe to an MQTT feed, and will automatically send received text data to the Feather M0 BLE board. Here are two ways to get Twitter data to an MQTT feed:
 
 #### Adafruit.io and IFTTT
 If you have never used MQTTT before, this will be the easiest way to start.  Adafruit.io is basically a simplified MQTT server.  You can use the free service IFTTT (If This Then That, http::www.ifttt.com) to make "recipes" that send data from one application to another.  The workflow is:
 
 **Twitter**--(IFTTT recipe)-->**IFTTT**--(IFTTT recipe)-->**Adafruit.io**--(MQTT)-->**Bluefruit App**--(BLE)-->**Feather M0 BLE**
 
-It is pretty easy to figure out how to set up a recipe in IFTTT to retrieve data from twitter and send it to Adafruit.io.  If you need help setting up the resto of the workflow, here are some useful articles:
+It is pretty easy to figure out how to set up a recipe in IFTTT to retrieve data from twitter and send it to Adafruit.io.  If you need help setting up the rest of of the workflow, here are some useful links:
 - Connecting IFTTT with Adafruit.io:  https://learn.adafruit.com/using-ifttt-with-adafruit-io/ifttt-to-adafruit-io-setup
 - Connecting Bluefruit App to Adafruit.io via MQTT: https://learn.adafruit.com/datalogging-hat-with-flora-ble/bluefruit-le-connect-settings
 
