@@ -40,7 +40,7 @@ The downside of using Adafruit.io and IFTTT is you have fairly little control ov
 ### (2) Node-RED and Mosquitto
 This method is more complicated to set up, but gives you much greater control over the data flow and has a faster response time.  I run both Node-Red and Mosquitto on a Raspberry Pi.  The workflow is:
 
-**Twitter**--(Node-RED)-->**MQTT message**--(Node-RED)-->Mosquitto--(MQTT)-->**Bluefruit App**--(BLE)-->**Feather M0 BLE**
+**Twitter**--(Node-RED)-->**MQTT message**--(Node-RED)-->**Mosquitto**--(MQTT)-->**Bluefruit App**--(BLE)-->**Feather M0 BLE**
 
 To set up this workflow, install both Mosquitto and Node-RED on a designated computer (again, a Raspberry Pi works very well for this).  
 
