@@ -46,7 +46,7 @@ To set up this workflow, install both Mosquitto and Node-RED on a designated com
 
 Configure Mosquitto with whatever security parameters you'd like.  Username/password restrictions are a good idea, but not configured automatically.  If you want to have your LED handbag retrieve messages from outside your home, then set up port forwarding to make the Mosquitto broker avaialable when you are out.  
 
-In Node-RED, set up a flow with only two nodes as shown below.  The Twitter node searches for the specified topic,  and the MQTT node sends the message out on a specified MQTT topic.  Set up the Bluefruit app to receive MQTT data from your Mosquitto server on that same topic, the messages will automatically appear as scrolled text on the LED Handbag
+In Node-RED, set up a flow with only two nodes as shown below.  The Twitter node conducts a Twitter search for a specific hashtag,  and the MQTT node sends the message out on a specified MQTT topic.  Set up the Bluefruit app to receive MQTT data from your Mosquitto server on that same topic, the messages will automatically appear as scrolling text on the LED Handbag
 
 ![Node-RED Flow](node-red-flow.png?raw=true "Node RED Flow")
 
