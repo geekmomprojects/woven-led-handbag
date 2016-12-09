@@ -5,8 +5,13 @@
 #define MAX_TEXT_COLUMNS  MAX_TEXT_CHARS*6  // Max 5 cols per char + 1 blank column for intra-char spacing
 #include <FastLED.h>
 
+
+// IF YOU ARE USING A DIFFERENT DIMENSION MATRIX, CHANGE THE VALUES HERE!
 #define MATRIX_WIDTH  14
 #define MATRIX_HEIGHT 8
+
+// DEPENDING ON HOW YOUR MATRIX IS SET UP, YOU MAY NEED TO INVERT THE HORIZONTAL OR DIRECTION OF TEXT. IF SO, UNCOOMENT THE LINE BELOW
+//#define INVERT_TEXT_HORZ
 
 // Palettes from FastLED library
 static CRGBPalette16 matrixPaletteList[] = {RainbowColors_p, CloudColors_p, PartyColors_p, OceanColors_p, LavaColors_p};

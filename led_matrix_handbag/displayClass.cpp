@@ -184,14 +184,22 @@ boolean DrawText::update() {
 
   if (!timeToUpdate()) return false;
 
-  // Shift text one left
+  // Shift text one left (right if inverted)
+#ifdef INVERT_TEXT_HORZ
+  shiftOneRight(_buffer);
+  int firstCol = 0;
+#else
   shiftOneLeft(_buffer);
+  int firstCol = _width-1;
+#endif
 
-  // Fill in rightmost row from the display buffer
+
+
+  // Fill in rightmost (leftmost if inverted) row from the display buffer
   int mask = 1 << _height;
   if (_colPtr < _colLen) {
     for (int y = 0; y < _height; y++) {
-      _buffer[XY(_width-1,y)] = (_displayBuffer[_colPtr] & mask) ? _color : CRGB::Black;
+      _buffer[XY(firstCol,y)] = (_displayBuffer[_colPtr] & mask) ? _color : CRGB::Black;
       mask >>=1;
     }
     _colPtr++;
@@ -207,7 +215,7 @@ boolean DrawText::update() {
     } 
   } else {                                   // Text is finished, but keep scrolling till it is off the screen
     for (int y = 0; y < _height; y++) {
-      _buffer[XY(_width-1,y)] = CRGB::Black;
+      _buffer[XY(firstCol,y)] = CRGB::Black;
     }
     _colPtr++;
   }
