@@ -325,7 +325,7 @@ private:
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-//  Scrolls a random walk pixel from one side of the screen to the other
+//  Displays a moving SinWave
 ////////////////////////////////////////////////////////////////////////////////////////////
 class SinWave : public DisplayMatrix {
 public:
@@ -341,6 +341,42 @@ public:
 private:
   uint8_t  _currentLevel, _currentColor, _index;
   
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//  A constantly color-changing blob flies around the screen in different patterns
+////////////////////////////////////////////////////////////////////////////////////////////
+class TestPattern : public DisplayMatrix {
+public:
+    TestPattern(CRGB *leds, CRGB *buff, uint8_t w, uint8_t h, uint16_t delayMS = 30, uint8_t palIndex = 0): DisplayMatrix( leds, buff, w, h, delayMS, palIndex) {
+      _isOn = true;
+      _index = 0;
+      _increment = 0;
+    }
+    void init() {};
+    boolean update();
+    
+// Data
+private:
+  boolean _isOn;
+  uint8_t _index;
+  uint32_t _increment;
+  
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//  Star-like twinkles vary in intensity in random positions on the screen
+////////////////////////////////////////////////////////////////////////////////////////////
+class SoftTwinkle : public DisplayMatrix {
+public:
+    SoftTwinkle(CRGB *leds, CRGB *buff, uint8_t w, uint8_t h, uint16_t delayMS = 30, uint8_t palIndex = 0): DisplayMatrix( leds, buff, w, h, delayMS, palIndex) {
+    }
+    void init() {};
+    boolean update();
+    
+// Data
+private:
+
 };
 
 #endif

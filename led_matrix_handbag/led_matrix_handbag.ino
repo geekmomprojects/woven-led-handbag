@@ -60,9 +60,11 @@ Twinkle         dTwinkle(leds, led_buffer, kMatrixWidth, kMatrixHeight);
 //Lines           dLines(leds, led_buffer, kMatrixWidth, kMatrixHeight); -- CURRENTLY NOT WORKING
 Worm            dWorm(leds, led_buffer, kMatrixWidth, kMatrixHeight);
 SinWave         dSin(leds, led_buffer, kMatrixWidth, kMatrixHeight);
+TestPattern     dTest(leds, led_buffer, kMatrixWidth, kMatrixHeight);
+SoftTwinkle     dSoft(leds, led_buffer, kMatrixWidth, kMatrixHeight);
 
 // Display modes
-DisplayMatrix *autoDisplays[] = {&dSin, &dRain, &dWorm, &dTwinkle, &dGame, &dBounce};
+DisplayMatrix *autoDisplays[] = {&dSoft, &dTest, &dSin, &dRain, &dWorm, &dTwinkle, &dGame, &dBounce};
 const int numModes = sizeof(autoDisplays)/sizeof(autoDisplays[0]);
 int displayMode = 0;
 

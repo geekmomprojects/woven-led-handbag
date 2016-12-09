@@ -729,3 +729,91 @@ boolean SinWave::update() {
   return true;
 }
 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//  Test class
+/////////////////////////////////////////////////////////////////////////////////////////
+const uint8_t kBorderWidth = 1;
+const uint8_t kMatrixWidth = 14;
+uint16_t XY( uint8_t x, uint8_t y) {
+   uint16_t i;
+ 
+  y = kMatrixWidth - 1 - y;
+  if( y & 0x01) {                           // Right side up
+   // Odd rows run forwards
+    i = (y *  kMatrixWidth) + x;
+  } else {
+     // Even rows run backwards
+    uint8_t reverseX = ( kMatrixWidth - 1) - x;
+    i = (y *  kMatrixWidth) + reverseX;
+    
+  }
+  
+  return i;                 // If right side up;
+}
+
+boolean TestPattern::update() {
+  if (!timeToUpdate()) return false;
+
+  //uint8_t blurAmount = dim8_raw( beatsin8(3,180,192) );
+  //blur2d( _leds, _width, _height, blurAmount);
+  /*
+  for (int i = 0; i < _width; i++) {
+    for (int j = 0; j < _height; j++) {
+      _leds[XY(i,j)] = CRGB::Black;
+    }
+  }
+  */
+  //_leds[ XY(_index,_index) ] = (_isOn ? CRGB::Red : CRGB::Blue);
+  _isOn = !_isOn;
+  _index = (_index + 1) % min(_height, _width);
+  _increment += 30;
+
+  uint8_t  ix = beatsin8(  91, kBorderWidth, _width-kBorderWidth);
+  uint8_t  jx = beatsin8( 109, kBorderWidth, _width-kBorderWidth);
+  uint8_t  kx = beatsin8(  73, kBorderWidth, _width-kBorderWidth);
+  uint8_t  iy = beatsin8(  91, kBorderWidth, _height-kBorderWidth);
+  uint8_t  jy = beatsin8( 109, kBorderWidth, _height-kBorderWidth);
+  uint8_t  ky = beatsin8(  73, kBorderWidth, _height-kBorderWidth);
+
+
+  _leds[ XY(ix, jy) ] += CHSV( (_increment / 29) % 255, 200, 255);
+//  _leds[ XY(jx, ky) ] += CHSV( (_increment / 41) % 255, 200, 255);
+//  _leds[ XY(kx, iy) ] += CHSV( (_increment / 73) % 255, 200, 255);
+   uint8_t blurAmount = dim8_raw( beatsin8(3,64,86) );
+//  blur2d( _leds, _width, _height, blurAmount);
+  blur2d( _leds, _width, _height, blurAmount);
+  FastLED.show();
+  
+
+  return true;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// SoftTwinkle
+/////////////////////////////////////////////////////////////////////
+const CRGB lightcolor(8,7,1);
+boolean SoftTwinkle::update() {
+  if (!timeToUpdate()) return false;
+
+  int nLeds = _width*_height;
+  for (int i = 0; i < nLeds; i++) {
+    if (!_leds[i]) continue;  //Skip black pixels
+    if (_leds[i].r & 1) { // is red odd?
+      _leds[i] -= lightcolor;  //darken if red is odd
+    } else {
+      _leds[i] += lightcolor;
+    }
+  }
+
+  // Randomly choose pixel, and if it's black bump it up a lttle
+  if (random8() < 80) {   // Change this number up for greater density of pixels
+    int j = random16(nLeds);
+    if (!_leds[j] ) _leds[j] = lightcolor;
+  }
+
+  FastLED.show();
+  return true;
+}
+
