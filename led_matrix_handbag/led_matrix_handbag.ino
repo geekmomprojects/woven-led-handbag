@@ -35,8 +35,8 @@ enum {BUTTON_1 = 1, BUTTON_2, BUTTON_3, BUTTON_4, BUTTON_UP, BUTTON_DOWN, BUTTON
 #define BRIGHTNESS  40
 
 // Params for LED matrix width and height
-const uint8_t kMatrixWidth = 14;
-const uint8_t kMatrixHeight = 8;
+const uint8_t kMatrixWidth = MATRIX_WIDTH;
+const uint8_t kMatrixHeight = MATRIX_HEIGHT;
 
 #define NUM_LEDS (kMatrixWidth*kMatrixHeight)
 

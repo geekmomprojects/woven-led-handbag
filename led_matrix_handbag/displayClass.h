@@ -5,6 +5,9 @@
 #define MAX_TEXT_COLUMNS  MAX_TEXT_CHARS*6  // Max 5 cols per char + 1 blank column for intra-char spacing
 #include <FastLED.h>
 
+#define MATRIX_WIDTH  14
+#define MATRIX_HEIGHT 8
+
 // Palettes from FastLED library
 static CRGBPalette16 matrixPaletteList[] = {RainbowColors_p, CloudColors_p, PartyColors_p, OceanColors_p, LavaColors_p};
 static const int numPalettes = sizeof(matrixPaletteList)/sizeof(matrixPaletteList[0]);

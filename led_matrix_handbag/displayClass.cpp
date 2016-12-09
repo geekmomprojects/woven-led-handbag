@@ -731,10 +731,10 @@ boolean SinWave::update() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//  Test class
+//  Function for use with some FastLED functions
 /////////////////////////////////////////////////////////////////////////////////////////
 const uint8_t kBorderWidth = 1;
-const uint8_t kMatrixWidth = 14;
+const uint8_t kMatrixWidth = MATRIX_WIDTH;
 uint16_t XY( uint8_t x, uint8_t y) {
    uint16_t i;
  
