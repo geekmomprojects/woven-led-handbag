@@ -298,7 +298,7 @@ void DisplayRain::init() {
 // Update:  Moves raindrops down and creates new ones
 //////////////////////////////////////////////////////////////
 boolean DisplayRain::update() {
-  static CRGB firstRow[16];
+  static CRGB firstRow[MATRIX_WIDTH];
 
   if (!timeToUpdate()) return false;
  
