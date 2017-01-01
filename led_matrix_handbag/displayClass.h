@@ -48,7 +48,7 @@ public:
   void shiftOneLeft(CRGB *leds);
   void shiftPercentDown(int percent, CRGB* nextRow);
   void shiftPercentLeft(int percent, CRGB* nextCol);
-  void copyMatrix(CRGB *from, CRGB *to, uint8_t nLeds);
+  void copyMatrix(CRGB *from, CRGB *to, uint16_t nToCopy);
   void clearDisplay();
 
   // Palette functions

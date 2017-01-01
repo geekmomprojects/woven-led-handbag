@@ -137,10 +137,8 @@ void DisplayMatrix::shiftPercentLeft(int percent, CRGB *nextCol) {
 ///////////////////////////////////////////////////////////////////////
 // Helper function to copy led configuration between two arrays
 ///////////////////////////////////////////////////////////////////////
-void DisplayMatrix::copyMatrix(CRGB *from, CRGB *to, uint8_t nleds) {
-  for (int i = 0; i < nleds; i++) {
-    to[i] = from[i];
-  }
+void DisplayMatrix::copyMatrix(CRGB *from, CRGB *to, uint16_t nToCopy) {
+ memcpy(to, from, sizeof(CRGB)*nToCopy);
 }
 
 //////////////////////////////////////////////////
